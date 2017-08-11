@@ -7,7 +7,7 @@ app.use(helmet())
 
 app.route(/\/(.*)/).get((req, res) => {
   res.json({
-    ipaddress: req.headers.host.toString(),
+    ipaddress: req.connection.remoteAddress.toString(),
     language: req.headers['accept-language'].split(',')[0],
     software: req.headers['user-agent'].toString().match(/\(([^)]+)\)/)[1],
   })
