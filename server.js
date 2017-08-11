@@ -1,10 +1,13 @@
 const express = require('express')
+const helmet = require('helmet')
 const url = require('url')
 const app = express()
 const retObj = {
   unix: null,
   natural: null,
 }
+
+app.use(helmet())
 
 app.route('/').get((req, res) => {
   res.sendFile(process.cwd() + '/views/index.html')
