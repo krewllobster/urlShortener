@@ -1,7 +1,7 @@
 {
-  "name": "timeservice",
+  "name": "headerparser",
   "version": "1.0.0",
-  "description": "fcc timestamp microservice project",
+  "description": "fcc timestamp headerparser project",
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/krewllobster/timeservice.git"
+    "url": "git+https://github.com/krewllobster/headerparser.git"
   },
   "keywords": [
     "freecodecamp"
@@ -17,9 +17,9 @@
   "author": "krewllobster",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/krewllobster/timeservice/issues"
+    "url": "https://github.com/krewllobster/headerparser/issues"
   },
-  "homepage": "https://github.com/krewllobster/timeservice#readme",
+  "homepage": "https://github.com/krewllobster/headerparser#readme",
   "dependencies": {
     "express": "^4.15.4",
     "helmet": "^3.8.1"
