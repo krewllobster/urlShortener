@@ -30,6 +30,6 @@ app.route(/\/(.*)/).get((req, res) => {
   res.json(retObj)
 })
 
-app.listen(27010, () => {
+app.listen(process.env.PORT || 27010, () => {
   console.log('node.js listening')
 })
