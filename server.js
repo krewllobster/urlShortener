@@ -34,15 +34,13 @@ app.get(['/new/:protocol*//:address*', '/new/:address*'], (req, res) => {
   console.log('url is: ' + url)
 
   api.checkNew(url).then(exists => {
-    var response
     if (exists) {
-      api.getShort(url).then(data => response = data)
+      api.getShort(url).then(data => res.json(data))
       .catch(err => res.redirect('/'))
     } else {
-      api.createShort(url).then(data => response = data)
+      api.createShort(url).then(data => res.json(data))
       .catch(err => res.redirect('/'))
     }
-    res.json(response)
   }).catch(err => console.log(err))
 })
 
