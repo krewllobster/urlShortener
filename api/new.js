@@ -43,7 +43,7 @@ const createShort = (url) => {
     })
   }).then(res => {
     console.log(res)
-    return {shortUrl: 'theUrl/' + res.insertedIds, url: url}
+    return {shortUrl: 'https://krewll-ly.herokuapp.com/' + res.insertedIds, url: url}
   }).catch(err => {
     console.log(err)
   })
