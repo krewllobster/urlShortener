@@ -1,15 +1,15 @@
 {
-  "name": "headerparser",
+  "name": "urlshortener",
   "version": "1.0.0",
-  "description": "fcc timestamp headerparser project",
-  "main": "index.js",
+  "description": "fcc timestamp urlshortener project",
+  "main": "server.js",
   "scripts": {
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/krewllobster/headerparser.git"
+    "url": "git+https://github.com/krewllobster/urlshortener.git"
   },
   "keywords": [
     "freecodecamp"
@@ -17,12 +17,14 @@
   "author": "krewllobster",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/krewllobster/headerparser/issues"
+    "url": "https://github.com/krewllobster/urlshortener/issues"
   },
-  "homepage": "https://github.com/krewllobster/headerparser#readme",
+  "homepage": "https://github.com/krewllobster/urlshortener#readme",
   "dependencies": {
     "express": "^4.15.4",
-    "helmet": "^3.8.1"
+    "helmet": "^3.8.1",
+    "mongodb": "^2.2.31",
+    "pako": "^1.0.5"
   },
   "engines": {
     "node": "7.7.4",
