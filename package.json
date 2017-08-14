@@ -24,7 +24,9 @@
     "express": "^4.15.4",
     "helmet": "^3.8.1",
     "mongodb": "^2.2.31",
-    "pako": "^1.0.5"
+    "pako": "^1.0.5",
+    "radix-64": "^1.0.4",
+    "validator": "^8.0.0"
   },
   "engines": {
     "node": "7.7.4",

@@ -4,18 +4,51 @@ const mongoClient = require('mongodb').MongoClient
 const url = require('url')
 const app = express()
 const api = require('./api/new.js')
+const validUrl =  require('validator/lib/isURL')
 
 app.use(helmet())
 
-app.get('/new/:url', (req, res) => {
-  mongoClient.connect('mongodb://api:api@ds111559.mlab.com:11559/urlshortener', (err, db) => {
-    if (err) throw err
+app.get('/', (req, res) => {
+  res.sendFile(process.cwd() + '/views/index.html')
+})
 
-    api.checkNew(req.params.url)
-      .then(data => console.log(data))
-      .catch(err => console.log(err))
+app.get('/badurl', (req, res) => {
+  res.sendFile(process.cwd() + '/views/badurl.html')
+})
 
+app.get('/badshort', (req, res) => {
+  res.sendFile(process.cwd() + '/views/badurl.html')
+})
 
+app.get(['/new/:protocol*//:address*', '/new/:address*'], (req, res) => {
+
+  const address = req.params.address
+
+  if(!validUrl(address)) {
+    res.redirect('/badurl')
+  }
+
+  const protocol = req.params.protocol
+  const url = (protocol ? protocol : 'https:') + '//' + address
+
+  console.log('url is: ' + url)
+
+  api.checkNew(url).then(exists => {
+    var response
+    if (exists) {
+      api.getShort(url).then(data => response = data)
+      .catch(err => res.redirect('/'))
+    } else {
+      api.createShort(url).then(data => response = data)
+      .catch(err => res.redirect('/'))
+    }
+    res.json(response)
+  }).catch(err => console.log(err))
+})
+
+app.get('/:id', (req, res) => {
+  api.getId(req.params.id).then(data => {
+    res.redirect(data)
   })
 })
 
