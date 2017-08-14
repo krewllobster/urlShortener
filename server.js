@@ -1,7 +1,5 @@
 const express = require('express')
 const helmet = require('helmet')
-const mongoClient = require('mongodb').MongoClient
-const url = require('url')
 const app = express()
 const api = require('./api/new.js')
 const validUrl =  require('validator/lib/isURL')
